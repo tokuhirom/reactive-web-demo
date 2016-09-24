@@ -30,7 +30,8 @@ public class HttpHandlerFactory {
         RouterFunction<?> jsonRouter =
                 route(GET("/json"), jsonHandler::json)
                         .and(route(GET("/hello/{name}"), jsonHandler::pathVariableDemo))
-                        .and(route(GET("/query-param"), jsonHandler::queryParamDemo));
+                        .and(route(GET("/query-param"), jsonHandler::queryParamDemo))
+                        .and(route(GET("/uri"), jsonHandler::uri));
 
         return RouterFunctions.toHttpHandler(
                 simpleRouter.and(jsonRouter)
